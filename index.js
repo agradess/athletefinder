@@ -208,7 +208,7 @@ app.post("/displayathlete", async function(request, response) {
     // TODO: handle the unhandled promise rejections
     
     // before rendering, update the database
-    execMongoDBOperation("insert", indexdotejsvars).catch(console.error);
+    await execMongoDBOperation("insert", indexdotejsvars).catch(console.error);
     response.render("display_player", indexdotejsvars);
 });
 
