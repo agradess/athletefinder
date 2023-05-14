@@ -102,19 +102,21 @@ type = 'insert', 'read', 'update', 'delete'
 
 async function execMongoDBOperation(type, documents) {
     
+    let result;
+
     try {
         await client.connect();
        
         /* Inserting multiple movies */
         // console.log("***** Inserting multiple movies *****");
-        let testArr = [{name:"Batman", year:2021, stars: 1.5},
-                               {name:"Wonder Women", year:2005, stars: 2.0},
-                               {name:"When Harry Met Sally", year:1985, stars: 5},
-                               {name:"Hulk", year:1985, stars: 5}
-                              ];
+        // let testArr = [{name:"Batman", year:2021, stars: 1.5},
+        //                        {name:"Wonder Women", year:2005, stars: 2.0},
+        //                        {name:"When Harry Met Sally", year:1985, stars: 5},
+        //                        {name:"Hulk", year:1985, stars: 5}
+        //                       ];
         
         if (type === "insert") {
-            const result = await client.db(databaseAndCollection.db)
+            result = await client.db(databaseAndCollection.db)
                 .collection(databaseAndCollection.collection)
                 .insertOne(documents);
 
@@ -125,6 +127,7 @@ async function execMongoDBOperation(type, documents) {
         console.error(e);
     } finally {
         await client.close();
+        return result;
     }
 }
 
