@@ -73,7 +73,7 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const { exit } = require('process');
 // These two below are for MongoDB
-require("dotenv").config({ path: path.resolve(__dirname, 'credentials') }) 
+require("dotenv").config({ path: path.resolve(__dirname, 'credentials/.env') }) 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const app = express();
@@ -83,7 +83,8 @@ const userName = process.env.MONGO_DB_USERNAME;
 const password = process.env.MONGO_DB_PASSWORD;
 
 /* Our database and collection */
-const databaseAndCollection = {db: process.env.MONGO_DB_NAME, collection: process.env.MONGO_COLLECTION };
+const databaseAndCollection = {db: "CMSC335_DB", collection: "athleteProfiles" };
+// const databaseAndCollection = {db: process.env.MONGO_DB_NAME, collection: process.env.MONGO_COLLECTION };
 const uri = `mongodb+srv://${userName}:${password}@cluster0.ulmanvi.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
