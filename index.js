@@ -1,7 +1,6 @@
 
 // Grading (a.k.a. TODOs)
 
-// TODO: Make a README.md
 // TODO: remove node_modules, turn this into a zip file
 
 // (40%) Application relies on Node.js and Express. [Fulfilled]
@@ -51,15 +50,15 @@ then later you can have a 'get saved long jump competitions' functionality
 Code Distribution:
 
 /node_modules
-/credentials (TODO)
-    .env (TODO)
+/credentials
+    .env
 /templates
     index.ejs - main page with the form (most of the CSS can be directed here)
     eventlist.ejs - this can be used for requests to the api and queries to MongoDB
     eventdetails.ejs - this is starting to feel like React, given an event id, find the LJ
         competition if necessary, and display the event details
     ...
-README.md (TODO)
+README.md
 
 */
 
@@ -91,14 +90,6 @@ const databaseAndCollection = {db: "CMSC335_DB", collection: "athleteProfiles" }
 const uri = `mongodb+srv://${userName}:${password}@cluster0.ulmanvi.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-// TODO: insert a record into the database
-/*
-    How am I going to do this?
-    when I do the post request, open the database, insert the record, close the database
-
-    async function execMongoDBOperation(op_type, data)
-*/
-
 /*
 type = 'insert', 'read', 'update', 'delete'
 */
@@ -110,14 +101,6 @@ async function execMongoDBOperation(type, documents) {
     try {
         await client.connect();
        
-        /* Inserting multiple movies */
-        // console.log("***** Inserting multiple movies *****");
-        // let testArr = [{name:"Batman", year:2021, stars: 1.5},
-        //                        {name:"Wonder Women", year:2005, stars: 2.0},
-        //                        {name:"When Harry Met Sally", year:1985, stars: 5},
-        //                        {name:"Hulk", year:1985, stars: 5}
-        //                       ];
-        
         // if (type === "insert") {
         await client.db(databaseAndCollection.db)
             .collection(databaseAndCollection.collection)
@@ -138,7 +121,7 @@ async function execMongoDBOperation(type, documents) {
 
 process.stdin.setEncoding("utf8");
 
-// NOTE: removing this so that maybe I can deploy it through app.cyclic
+// NOTE: removing this so that maybe I can deploy it through cyclic.sh
 // if (process.argv.length != 3) {
 //   process.stdout.write(`Usage node index.js PORT_NUMBER`);
 //   process.exit(1);
@@ -195,6 +178,14 @@ app.post("/displayathlete", async function(request, response) {
     const fresponse = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${player_name}`);
     athleticsjson = await fresponse.json();
     console.log(athleticsjson["player"][0]);
+    if (athleticsjson["player"] == undefined) {
+        response.render("display_player", {
+            playername: "Athlete Not Found",
+            playernameimg: res_playernameimg,
+            playerdesc: `The athlete ${player_name} may not be in our database. You can also attempt to search again and see if there were any misspellings.`
+        });
+        return;
+    }
     const athletejson = athleticsjson["player"][0];
     
     res_playernameimg = `<img src="${athletejson["strThumb"]}" alt="${player_name}" >`;

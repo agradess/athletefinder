@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     font-size: 20px;
 }
@@ -23,4 +28,26 @@ button[name="fetch_button"] {
 
 #athlete_name {
     display: inline;
+}
+
+#athlete_header {
+    display: flexbox;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    background-color: purple;
+    color: whitesmoke;
+}
+
+#player_desc {
+    width: min-content;
+    padding: 1rem 4rem;
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightblue;
+    color: purple;
+    
 }
