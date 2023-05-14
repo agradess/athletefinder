@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Montserrat">
     <!-- I had to create a public/css folder to get the css to work -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Athlete Finder</title>
 </head>
 <body>
-    <form action="/displayathlete" method="post">
-        <div>Year: <input type="number" name="season" min="1896" max="3000"></div>
-        <div>Athlete Name: <input type="text" name="playname"></div>
-        <button type="submit" name="fetch_button">Fetch the Data! Aha!</button>
-    </form>
+    <div id="athlete_header">
+        <p id="page_title">Athlete Finder Search</p>
+        <p id="site_description">Searching for athletes using thesportsdb.com's API!
+            Note this database may not be comprehensive.</p>
+    </div>
+    <div class="centered_content" id="page_content">
+        <form action="/displayathlete" method="post">
+            <div>Athlete Name: <input type="text" name="playname"></div>
+            <button type="submit" name="fetch_button">Find Athlete</button>
+        </form>
+    </div>
+    
 </body>
 </html>

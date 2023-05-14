@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Montserrat">
     <!-- I had to create a public/css folder to get the css to work -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Athlete Finder | Athlete Profile</title>
@@ -12,16 +14,22 @@
     
     <div id="athlete_header">
         <%- playernameimg %>   
-        <h2 id="athlete_name">
+        <h1 id="athlete_name">
             <%- playername %>
-        </h2>
+        </h1>
+        <hr style="color: aqua;">
     </div>
     <hr>
-    <div id="player_desc">
+    <div id="page_content">
         <%- playerdesc %>
+        <div>
+            <button id="search_home">
+                <a href="/">
+                    Search Again
+                </a>
+            </button>
+        </div>
     </div>
-    <div>
-        <button id="search_home"><a href="/">Search Again</a></button>
-    </div>
+    
 </body>
 </html>
