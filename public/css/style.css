@@ -45,8 +45,8 @@ button[name="fetch_button"] {
 }
 
 #player_desc {
-    width: max-content;
-    padding: 1rem 4rem;
+    /* width: max-content; */
+    padding: 1rem 6rem;
     
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: whitesmoke;
