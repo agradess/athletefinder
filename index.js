@@ -132,10 +132,11 @@ async function execMongoDBOperation(type, documents) {
 
 process.stdin.setEncoding("utf8");
 
-if (process.argv.length != 3) {
-  process.stdout.write(`Usage node summerCampServer.js PORT_NUMBER`);
-  process.exit(1);
-}
+// NOTE: removing this so that maybe I can deploy it through app.cyclic
+// if (process.argv.length != 3) {
+//   process.stdout.write(`Usage node summerCampServer.js PORT_NUMBER`);
+//   process.exit(1);
+// }
 
 // helps parse incoming form data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -215,7 +216,8 @@ app.post("/displayathlete", async function(request, response) {
 //     response.render("display_player", vars);
 // });
 
-const portNumber = Number(process.argv[2]);
+// const portNumber = Number(process.argv[2]);
+const portNumber = 5340;
 app.listen(portNumber); 
 process.stdout.write(`Web server started and running at http://localhost:${portNumber}\n`);
 process.stdout.write(`Stop to shutdown the server: `);
