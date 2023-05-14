@@ -115,13 +115,13 @@ async function execMongoDBOperation(type, documents) {
         //                        {name:"Hulk", year:1985, stars: 5}
         //                       ];
         
-        if (type === "insert") {
-            result = await client.db(databaseAndCollection.db)
-                .collection(databaseAndCollection.collection)
-                .insertOne(documents);
+        // if (type === "insert") {
+        result = await client.db(databaseAndCollection.db)
+            .collection(databaseAndCollection.collection)
+            .insertOne(documents);
 
                 // console.log(`Inserted ${result.insertedCount} documents`);
-        }
+        // }
 
     } catch (e) {
         console.error(e);
