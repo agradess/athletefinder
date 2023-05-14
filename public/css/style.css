@@ -10,6 +10,7 @@ html {
 img {
     display: inline;
     width: 20%;
+    /* padding-left: 6rem; */
 }
 
 button {
@@ -41,7 +42,7 @@ button[name="fetch_button"] {
     background-color: purple;
     color: whitesmoke;
 
-    padding: 2.5rem;
+    padding: 6rem;
 }
 
 #player_desc {
