@@ -1,12 +1,15 @@
 
 // Grading (a.k.a. TODOs)
 
+// TODO: Make a README.md
+// TODO: remove node_modules, turn this into a zip file
+
 // (40%) Application relies on Node.js and Express. [Fulfilled]
-// (10%) Application relies on MongoDB.
+// (10%) Application relies on MongoDB. [Fulfilled]
 // (10%) Application relies on at least one form. [Fulfilled]
 // (5%) Application makes use of some CSS. [Fulfilled]
 // (30%) Application makes use of some API. [Fulfilled]
-// (5%) Application is deployed online
+// (5%) Application is deployed online [Fulfilled]
 //      (e.g., using a company that provides a free-hosting
 //      option e.g., https://render.com/).
 
