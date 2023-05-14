@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- I had to create a public/css folder to get the css to work -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Athlete Finder | Athlete Profile</title>
+</head>
+<body>
+    
+    <div id="athlete_header">
+        <h2 id="athlete_name">
+            <%- playername %>
+        </h2>
+        <%- playernameimg %>    
+    </div>
+    <div id="player_desc">
+        <%- playerdesc %>
+    </div>
+    <div>
+        <button id="search_home"><a href="/">Search Again</a></button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "finalexamproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./index.js 5340"
+  },
+  "author": "Adam Gradess",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "http": "0.0.1-security",
+    "mongodb": "^5.5.0",
+    "node-fetch": "^2.6.9"
+  }
+}

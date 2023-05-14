@@ -1,0 +1,26 @@
+html {
+    font-size: 20px;
+}
+
+img {
+    display: inline;
+    width: 20%;
+}
+
+button {
+    color: white;
+    background-color: purple;
+}
+
+button a {
+    text-decoration: none;
+    color: lightyellow;
+}
+
+button[name="fetch_button"] {
+    font-weight: 700;
+}
+
+#athlete_name {
+    display: inline;
+}
