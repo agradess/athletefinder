@@ -40,14 +40,16 @@ button[name="fetch_button"] {
     font-weight: 100;
     background-color: purple;
     color: whitesmoke;
+
+    padding: 2.5rem;
 }
 
 #player_desc {
-    width: min-content;
+    width: max-content;
     padding: 1rem 4rem;
     
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: lightblue;
+    background-color: whitesmoke;
     color: purple;
     
 }
