@@ -102,7 +102,7 @@ type = 'insert', 'read', 'update', 'delete'
 
 async function execMongoDBOperation(type, documents) {
     
-    let result;
+    // let result;
 
     try {
         await client.connect();
@@ -116,7 +116,7 @@ async function execMongoDBOperation(type, documents) {
         //                       ];
         
         // if (type === "insert") {
-        result = await client.db(databaseAndCollection.db)
+        await client.db(databaseAndCollection.db)
             .collection(databaseAndCollection.collection)
             .insertOne(documents);
 
@@ -127,7 +127,7 @@ async function execMongoDBOperation(type, documents) {
         console.error(e);
     } finally {
         await client.close();
-        return result;
+        // return result;
     }
 }
 
