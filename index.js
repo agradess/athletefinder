@@ -73,7 +73,7 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const { exit } = require('process');
 // These two below are for MongoDB
-require("dotenv").config({ path: path.resolve(__dirname, 'credentials/.env') }) 
+require("dotenv").config({ path: path.resolve(__dirname, 'credentials') }) 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const app = express();
@@ -83,7 +83,7 @@ const userName = process.env.MONGO_DB_USERNAME;
 const password = process.env.MONGO_DB_PASSWORD;
 
 /* Our database and collection */
-const databaseAndCollection = {db: "CMSC335_DB", collection:"athleteProfiles"};
+const databaseAndCollection = {db: process.env.MONGO_DB_NAME, collection: process.env.MONGO_COLLECTION };
 
 // TODO: insert a record into the database
 /*
@@ -134,7 +134,7 @@ process.stdin.setEncoding("utf8");
 
 // NOTE: removing this so that maybe I can deploy it through app.cyclic
 // if (process.argv.length != 3) {
-//   process.stdout.write(`Usage node summerCampServer.js PORT_NUMBER`);
+//   process.stdout.write(`Usage node index.js PORT_NUMBER`);
 //   process.exit(1);
 // }
 
