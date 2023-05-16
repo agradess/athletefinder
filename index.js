@@ -186,8 +186,13 @@ app.post("/displayathlete", async function(request, response) {
         });
         return;
     }
-    const athletejson = athleticsjson["player"][0];
-    
+    const athletejson = athleticsjson["player"];
+    if (athletejson != undefined) {
+        athletejson = athletejson[0];
+    } else {
+        response.render("athletenotfound");
+    }
+
     res_playernameimg = `<img src="${athletejson["strThumb"]}" alt="${player_name}" >`;
     res_playerdesc = athletejson["strDescriptionEN"];
     player_name = athletejson["strPlayer"];
