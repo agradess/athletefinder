@@ -177,20 +177,21 @@ app.post("/displayathlete", async function(request, response) {
     // Search player by name
     const fresponse = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${player_name}`);
     athleticsjson = await fresponse.json();
-    console.log(athleticsjson["player"][0]);
-    if (athleticsjson["player"] == undefined) {
-        response.render("display_player", {
-            playername: "Athlete Not Found",
-            playernameimg: res_playernameimg,
-            playerdesc: `The athlete ${player_name} may not be in our database. You can also attempt to search again and see if there were any misspellings.`
-        });
-        return;
-    }
-    const athletejson = athleticsjson["player"];
+    // console.log(athleticsjson["player"][0]);
+    // if (athleticsjson["player"] == undefined) {
+    //     response.render("display_player", {
+    //         playername: "Athlete Not Found",
+    //         playernameimg: res_playernameimg,
+    //         playerdesc: `The athlete ${player_name} may not be in our database. You can also attempt to search again and see if there were any misspellings.`
+    //     });
+    //     return;
+    // }
+    let athletejson = athleticsjson["player"];
     if (athletejson != undefined) {
         athletejson = athletejson[0];
     } else {
         response.render("athletenotfound");
+        return;
     }
 
     res_playernameimg = `<img src="${athletejson["strThumb"]}" alt="${player_name}" >`;
