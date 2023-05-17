@@ -87,7 +87,8 @@ const password = process.env.MONGO_DB_PASSWORD;
 /* Our database and collection */
 const databaseAndCollection = {db: "CMSC335_DB", collection: "athleteProfiles" };
 // const databaseAndCollection = {db: process.env.MONGO_DB_NAME, collection: process.env.MONGO_COLLECTION };
-const uri = `mongodb+srv://${userName}:${password}@cluster0.ulmanvi.mongodb.net/?retryWrites=true&w=majority`;
+
+const uri = `mongodb+srv://${userName}:${password}@cluster0.uxrjrs9.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 /*
